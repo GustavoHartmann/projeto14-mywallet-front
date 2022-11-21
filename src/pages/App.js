@@ -5,6 +5,7 @@ import SignIn from "./Sign-in";
 import SignUp from "./Sign-up";
 import AuthProvider from "../context/AuthContext";
 import Statements from "./Statements";
+import NovaEntrada from "./NovaEntrada";
 
 export default function App() {
   return (
@@ -16,6 +17,7 @@ export default function App() {
           <Route path="/" element={<SignIn />} />
           <Route path="/sign-up" element={<SignUp />} />
           <Route path="/statements" element={<Statements />} />
+          <Route path="/nova-entrada" element={<NovaEntrada />} />
         </Routes>
       </AuthProvider>
     </BrowserRouter>

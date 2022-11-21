@@ -5,6 +5,7 @@ import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../context/AuthContext";
 import axios from "axios";
 import Statement from "../../components/Statement";
+import { Link } from "react-router-dom";
 
 export default function Statements() {
   const [username, setUsername] = useState("");
@@ -40,10 +41,12 @@ export default function Statements() {
           : "Não há registro de entrada ou saída"}
       </StatementsContainer>
       <span>
-        <button>
-          <CiCirclePlus />
-          Nova Entrada
-        </button>
+        <Link to={"/nova-entrada"}>
+          <button>
+            <CiCirclePlus />
+            Nova Entrada
+          </button>
+        </Link>
         <button>
           <CiCircleMinus />
           Nova Saída
