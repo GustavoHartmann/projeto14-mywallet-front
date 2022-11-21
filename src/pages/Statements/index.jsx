@@ -47,10 +47,12 @@ export default function Statements() {
             Nova Entrada
           </button>
         </Link>
-        <button>
-          <CiCircleMinus />
-          Nova Saída
-        </button>
+        <Link to={"/nova-saida"}>
+          <button>
+            <CiCircleMinus />
+            Nova Saída
+          </button>
+        </Link>
       </span>
     </StatementsPageContainer>
   );
