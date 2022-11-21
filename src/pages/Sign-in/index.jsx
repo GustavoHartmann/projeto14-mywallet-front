@@ -5,7 +5,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { useContext, useState } from "react";
 import axios from "axios";
 import Swal from "sweetalert2";
-import { AuthContext } from "../../components/AuthContext";
+import { AuthContext } from "../../context/AuthContext";
 
 export default function SignIn() {
   const [inputEmail, setInputEmail] = useState("");
