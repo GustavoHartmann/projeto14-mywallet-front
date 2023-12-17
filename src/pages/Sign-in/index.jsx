@@ -16,7 +16,7 @@ export default function SignIn() {
 
   async function makeSignIn(e) {
     e.preventDefault();
-    const url = "http://localHost:5000/sign-in";
+    const url = `${process.env.REACT_APP_API_URL}/sign-in`;
 
     try {
       const response = await axios.post(url, {
@@ -25,7 +25,6 @@ export default function SignIn() {
       });
 
       setToken(response.data.token);
-
       navigate("/statements");
     } catch (err) {
       console.log(err);

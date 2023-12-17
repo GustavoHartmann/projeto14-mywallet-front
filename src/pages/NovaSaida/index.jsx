@@ -15,7 +15,7 @@ export default function NovaSaida() {
 
   async function makeNovaSaida(e) {
     e.preventDefault();
-    const url = "http://localHost:5000/statements";
+    const url = `${process.env.REACT_APP_API_URL}/statements`;
     const config = {
       headers: {
         Authorization: `Bearer ${token}`,
@@ -39,6 +39,7 @@ export default function NovaSaida() {
       });
     }
   }
+  
   return (
     <NovaSaidaContainer>
       <h1>Nova saída</h1>

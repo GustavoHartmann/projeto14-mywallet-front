@@ -18,7 +18,7 @@ export default function SignUp() {
 
   async function makeSignUp(e) {
     e.preventDefault();
-    const url = "http://localHost:5000/sign-up";
+    const url = `${process.env.REACT_APP_API_URL}/sign-up`;
 
     try {
       await axios.post(url, {

@@ -7,6 +7,7 @@ import axios from "axios";
 import Statement from "../../components/Statement";
 import { Link } from "react-router-dom";
 import Swal from "sweetalert2";
+import Saldo from "../../components/Saldo";
 
 export default function Statements() {
   const [username, setUsername] = useState("");
@@ -15,7 +16,7 @@ export default function Statements() {
   const { token } = useContext(AuthContext);
 
   async function getStatements() {
-    const url = "http://localHost:5000/statements";
+    const url = `${process.env.REACT_APP_API_URL}/statements`;
     const config = {
       headers: {
         Authorization: `Bearer ${token}`,
@@ -24,12 +25,11 @@ export default function Statements() {
 
     try {
       const response = await axios.get(url, config);
-
       const { user, statements } = response.data;
 
       setUsername(user.name);
       setStatementsArray(statements);
-      
+
       let value = 0;
       statements.forEach((s) => {
         value += s.value;
@@ -57,10 +57,7 @@ export default function Statements() {
         {statementsArray.length > 0
           ? statementsArray.map((s) => <Statement key={s._id} statement={s} />)
           : "Não há registro de entrada ou saída"}
-        <div>
-          <p>SALDO</p>
-          <p>{balance}</p>
-        </div>
+        <Saldo balance={balance} />
       </StatementsContainer>
       <span>
         <Link to={"/nova-entrada"}>

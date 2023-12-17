@@ -15,7 +15,7 @@ export default function NovaEntrada() {
 
   async function makeNovaEntrada(e) {
     e.preventDefault();
-    const url = "http://localHost:5000/statements";
+    const url = `${process.env.REACT_APP_API_URL}/statements`;
     const config = {
       headers: {
         Authorization: `Bearer ${token}`,
@@ -39,6 +39,7 @@ export default function NovaEntrada() {
       });
     }
   }
+  
   return (
     <NovaEntradaContainer>
       <h1>Nova entrada</h1>
